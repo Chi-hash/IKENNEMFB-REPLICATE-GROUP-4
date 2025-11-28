@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
-/* CSS Variables for better maintainability */
 :root {
   --primary-color: #05330c;
   --primary-light: #073c06;
@@ -279,20 +278,19 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-x: hidden;
 }
 
 /* --- HERO SECTION STYLES --- */
 #hero-section {
   position: relative;
   width: 100%;
-  height: 100vh; /* Full Viewport Height */
-  min-height: 500px; /* Minimum height for stability */
+  height: 100vh;
+  min-height: 500px;
   overflow: hidden;
-  background: black; /* Fallback color */
+  background: black;
 }
 
-/* Removed .container constraint or made it full width */
 #hero-section .container-fluid {
   position: relative;
   width: 100%;
@@ -318,7 +316,6 @@ body {
   z-index: 1;
 }
 
-/* Overlay to make text readable */
 #hero-section .slider-div::before {
   content: "";
   position: absolute;
@@ -343,7 +340,7 @@ body {
 #hero-section .hero-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures image covers full area without distortion */
+  object-fit: cover;
   object-position: center;
   display: block;
 }
@@ -352,8 +349,8 @@ body {
 .hero-text {
   position: absolute;
   top: 50%;
-  left: 5%; /* 5% from the left edge */
-  transform: translateY(-50%); /* Center vertically */
+  left: 5%;
+  transform: translateY(-50%);
   z-index: 10;
   color: white;
   opacity: 0;
@@ -369,14 +366,14 @@ body {
 
 /* Initial state for text animation */
 .slider-div .hero-text {
-  transform: translateY(-40%); /* Starts slightly higher */
+  transform: translateY(-40%);
 }
 
 .hero-welcome {
-  font-size: 2.5rem; /* Responsive unit */
+  font-size: 2.5rem;
   margin: 0;
   font-weight: 300;
-  color: #ffcc00; /* Gold accent color */
+  color: #ffcc00;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
@@ -395,9 +392,8 @@ body {
   margin: 0;
 }
 
-/* Specific color overrides from your original code */
 .black {
-  color: white !important; /* Changed to white for visibility on full bg */
+  color: white !important;
   font-weight: bold;
 }
 
@@ -421,7 +417,7 @@ body {
 /* Mobile */
 @media (max-width: 600px) {
   #hero-section {
-    height: 50vh; /* Smaller height on mobile */
+    height: 50vh;
     min-height: 350px;
   }
 
@@ -867,7 +863,6 @@ body {
 
 /* Testimonial Section */
 
-/* --- 1. CSS VARIABLES --- */
 :root {
   /* Colors */
 
@@ -911,24 +906,18 @@ h1 {
   gap: var(--spacing-md);
 }
 
-/* --- 4. THE SCROLL TRACK (FLATTENED) --- */
 .testimonial-track {
   display: flex;
   gap: var(--spacing-md);
 
-  /* Scroll Logic */
   overflow-x: auto;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
 
   /* Layout */
   flex: 1;
-  padding: 20px 5px; /* Tiny padding for shadow clearance */
-
-  /* Ensure items stretch to equal height */
+  padding: 20px 5px;
   align-items: stretch;
-
-  /* Hide Scrollbar */
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -944,22 +933,14 @@ h1 {
   border-radius: var(--border-radius-lg);
   padding: var(--spacing-lg);
   box-shadow: var(--shadow-sm);
-
-  /* Flex layout for card content */
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-
-  /* Snap Logic */
   scroll-snap-align: start;
-  flex-shrink: 0; /* Prevent squishing */
-
-  /* Transition */
+  flex-shrink: 0;
   transition: transform var(--transition-speed),
     box-shadow var(--transition-speed);
-
-  /* Height management */
   height: auto;
 }
 
@@ -969,17 +950,12 @@ h1 {
 }
 
 /* --- 6. RESPONSIVE WIDTHS --- */
-
-/* DESKTOP (>900px): 3 Cards Visible */
-/* Logic: (100% width - 2 gaps) / 3 items */
 .testimonial-card {
   width: calc((100% - (2 * var(--spacing-md))) / 3);
 }
 
-/* TABLET (<900px): 2 Cards Visible */
 @media (max-width: 900px) {
   .testimonial-card {
-    /* Logic: (100% width - 1 gap) / 2 items */
     width: calc((100% - var(--spacing-md)) / 2);
   }
   h1 {
@@ -991,7 +967,7 @@ h1 {
 @media (max-width: 600px) {
   .testimonial-card {
     width: 100%;
-    scroll-snap-align: center; /* Center snap on mobile */
+    scroll-snap-align: center;
   }
   h1 {
     font-size: 1.75rem;
@@ -1032,7 +1008,6 @@ h1 {
   line-height: 1.6;
   margin: 0;
   font-style: italic;
-  /* Allow text to grow/shrink properly in flex column */
   flex-grow: 1;
   display: flex;
   align-items: center;
@@ -1061,7 +1036,6 @@ h1 {
   transform: scale(1.1);
 }
 
-/* Mobile specific button adjustment */
 @media (max-width: 600px) {
   .slider-btn {
     position: absolute;
@@ -1099,7 +1073,7 @@ h1 {
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  padding: 0; /* Reset default button padding */
+  padding: 0;
 }
 
 .indicator:hover {
@@ -1115,13 +1089,13 @@ h1 {
 
 /* --- 1. CSS VARIABLES --- */
 :root {
-  --primary-color: #004d99; /* Brand Deep Blue */
-  --accent-color: #ffcc00; /* Brand Gold */
-  --bg-light: #f4f7f6; /* Very light grey-blue tint */
+  --primary-color: #004d99;
+  --accent-color: #ffcc00;
+  --bg-light: #f4f7f6;
   --white: #ffffff;
 
   --spacing-md: 20px;
-  --border-radius-lg: 16px; /* Softer corners */
+  --border-radius-lg: 16px;
   --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.05);
   --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.1);
   --transition-smooth: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -1130,7 +1104,6 @@ h1 {
 /* --- 2. BASE STYLES --- */
 
 #gallery {
-  /* Subtle modern gradient background */
   background: linear-gradient(to bottom, #ffffff 0%, var(--bg-light) 100%);
   padding: 80px 20px;
   overflow: hidden;
@@ -1158,7 +1131,6 @@ h1 {
   font-weight: 400;
 }
 
-/* Decorative line under heading */
 .section-title::after {
   content: "";
   display: block;
@@ -1176,7 +1148,6 @@ h1 {
   padding: 20px 0;
 }
 
-/* Flex container for buttons + content */
 .gallery-slider {
   display: flex;
   align-items: center;
@@ -1214,10 +1185,9 @@ h1 {
   transform: translateY(0) scale(0.95);
 }
 
-/* --- 5. THE SCROLL TRACK --- */
 .gallery-slider-content {
   display: flex;
-  gap: 24px; /* Slightly larger gap for modern feel */
+  gap: 24px;
   flex: 1;
   width: 0;
   min-width: 0;
@@ -1229,8 +1199,6 @@ h1 {
   /* Hide scrollbars */
   scrollbar-width: none;
   -ms-overflow-style: none;
-
-  /* Padding inside track to show shadows */
   padding: 10px 5px 30px 5px;
 }
 
@@ -1240,7 +1208,7 @@ h1 {
 
 /* --- 6. GALLERY CARD (Modern Look) --- */
 .gallery-slide {
-  height: 280px; /* Taller images look more premium */
+  height: 280px;
   position: relative;
   border-radius: var(--border-radius-lg);
   overflow: hidden;
@@ -1253,13 +1221,11 @@ h1 {
     box-shadow var(--transition-smooth);
 }
 
-/* Zoom Effect on Hover */
 .gallery-slide:hover {
   transform: translateY(-8px);
   box-shadow: var(--shadow-hover);
 }
 
-/* Image & Video Styles */
 .gallery-slide img,
 .gallery-slide video {
   width: 100%;
@@ -1290,7 +1256,6 @@ h1 {
   opacity: 1;
 }
 
-/* Icon Overlay on Hover */
 .gallery-slide::before {
   content: "\f00e";
   font-family: "Font Awesome 5 Free";
@@ -1371,12 +1336,11 @@ h1 {
 }
 /* footer section */
 :root {
-  /* Brand Colors based on your image */
-  --footer-bg: #004d99; /* The deep blue background */
-  --footer-text: #ffffff; /* White text */
-  --accent-yellow: #ffcc00; /* The yellow/gold buttons/icons */
-  --accent-hover: #e6b800; /* Slightly darker yellow for hover */
-  --text-muted: #e0e0e0; /* Slightly dimmer white for body text */
+  --footer-bg: #004d99;
+  --footer-text: #ffffff;
+  --accent-yellow: #ffcc00;
+  --accent-hover: #e6b800;
+  --text-muted: #e0e0e0;
 }
 
 /* --- FOOTER CONTAINER --- */
@@ -1449,7 +1413,7 @@ h1 {
 .contact-icon {
   color: var(--accent-yellow);
   margin-right: 12px;
-  margin-top: 4px; /* Align icon with first line of text */
+  margin-top: 4px;
   font-size: 1rem;
   flex-shrink: 0;
 }
@@ -1458,7 +1422,7 @@ h1 {
   color: var(--text-muted);
   text-decoration: none;
   transition: color 0.3s ease;
-  word-break: break-all; /* Prevents long emails from breaking layout */
+  word-break: break-all;
 }
 
 .contact-link:hover {
@@ -1486,7 +1450,7 @@ h1 {
 
 /* Arrow hover effect */
 .footer-links a::before {
-  content: "\f054"; /* FontAwesome Chevron Right */
+  content: "\f054";
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   font-size: 10px;
@@ -1531,7 +1495,7 @@ h1 {
 
 .subscribe-btn {
   background-color: var(--accent-yellow);
-  color: #000; /* Black text for contrast on yellow */
+  color: #000;
   border: none;
   padding: 12px;
   border-radius: 4px;
@@ -1571,7 +1535,7 @@ h1 {
 @media (max-width: 600px) {
   .footer-container {
     grid-template-columns: 1fr;
-    text-align: left; /* Keep left alignment for readability */
+    text-align: left;
     gap: 40px;
   }
 
@@ -1581,9 +1545,9 @@ h1 {
 }
 
 /* main about page */
-/* --- 4. OUR HISTORY SECTION (UPDATED) --- */
+/* --- 4. OUR HISTORY SECTION --- */
 .history-section {
-  padding: var(--spacing-xl) 5%; /* Consistent padding */
+  padding: var(--spacing-xl) 5%;
   background-color: var(--bg-white);
 }
 
@@ -1601,7 +1565,7 @@ h1 {
 
 .history-title h2 {
   font-size: 2.5rem;
-  color: var(--primary-color); /* Deep Blue */
+  color: var(--primary-color);
   font-weight: 700;
   margin: 0;
   position: relative;
@@ -1621,12 +1585,12 @@ h1 {
 }
 
 .history-content p {
-  font-family: "Inter", sans-serif; /* Clean font for body text */
+  font-family: "Inter", sans-serif;
   font-size: 1rem;
   line-height: 1.8;
   color: var(--text-dark);
   margin-bottom: 25px;
-  text-align: justify; /* Clean blocks of text */
+  text-align: justify;
 }
 
 .history-content p:last-child {
