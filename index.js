@@ -49,7 +49,7 @@ const menuIcon = document.getElementById('menuIcon');
       });
 
       
-      // You can customize this based on your routing logic
+     
       const currentPath = window.location.pathname;
       if (currentPath === '/' || currentPath.includes('index')) {
         const homeLinks = document.querySelectorAll('header a[href="#"]');
@@ -66,7 +66,7 @@ const menuIcon = document.getElementById('menuIcon');
             const sliderDivs = document.querySelectorAll('.slider-div');
             let currentSlide = 0;
 
-            // Ensure first slide is active initially
+           
             if(sliderDivs.length > 0) {
                 sliderDivs[0].classList.add('active');
             }
@@ -116,7 +116,7 @@ const menuIcon = document.getElementById('menuIcon');
 
             const indicators = document.querySelectorAll('.indicator');
 
-            // Helper to get dynamic width
+           
             const getCardWidth = () => {
                 const card = cards[0];
                 return card.offsetWidth + 20; // 20 is the gap
@@ -125,7 +125,7 @@ const menuIcon = document.getElementById('menuIcon');
             // --- 2. UPDATE INDICATORS ON SCROLL ---
             track.addEventListener('scroll', () => {
                 const cardWidth = getCardWidth();
-                // Calculate which card index is currently at the left edge
+               
                 const scrollIndex = Math.round(track.scrollLeft / cardWidth);
 
                 indicators.forEach((dot, index) => {
@@ -184,7 +184,7 @@ const menuIcon = document.getElementById('menuIcon');
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
 
-            // Scroll Logic: Width of one item + gap
+            // Scroll Logic
             const scrollAmount = () => {
                 const containerWidth = sliderContent.clientWidth;
              
