@@ -1688,7 +1688,7 @@ h1 {
 }
 .team-img {
   width: 100%;
-  height: 280px;
+  height: 360px;
   object-fit: cover;
   background-color: #ddd;
 }
@@ -1706,6 +1706,12 @@ h1 {
   color: var(--text-light);
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+@media screen and (max-width: 600px) {
+  .team-img {
+    height: 450px;
+  }
 }
 
 /* main services page */

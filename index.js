@@ -206,39 +206,34 @@ const menuIcon = document.getElementById('menuIcon');
         
 
 
-
 // modal functionality
+  const modal = document.getElementById("teamModal");
+  const modalImg = document.getElementById("modalImg");
+  const modalName = document.getElementById("modalName");
+  const modalRole = document.getElementById("modalRole");
+  const modalBio = document.getElementById("modalBio");
+  const closeBtn = document.querySelector(".close");
 
-      // Modal Functionality
-      const modal = document.getElementById("teamModal");
-      const modalImg = document.getElementById("modalImg");
-      const modalName = document.getElementById("modalName");
-      const modalRole = document.getElementById("modalRole");
-      const modalBio = document.getElementById("modalBio");
-      const closeBtn = document.querySelector(".close");
+  document.querySelectorAll(".team-card").forEach(card => {
+    card.addEventListener("click", function() {
+      modalName.textContent = this.dataset.name;
+      modalRole.textContent = this.dataset.role;
+      modalImg.src = this.querySelector("img").src;
+      modalBio.innerHTML = this.dataset.bio.replace(/\n/g, "<br>"); // preserves line breaks if any
 
-      document.querySelectorAll(".team-card").forEach(card => {
-        card.addEventListener("click", function() {
-          modalName.textContent = this.dataset.name;
-          modalRole.textContent = this.dataset.role;
-          modalImg.src = this.querySelector(".team-img").src;
-          modalBio.textContent = this.dataset.bio;
+      modal.style.display = "block";
+      document.body.style.overflow = "hidden";
+    });
+  });
 
-          modal.style.display = "block";
-          document.body.style.overflow = "hidden"; // Prevent background scroll
-        });
-      });
+  closeBtn.onclick = () => {
+    modal.style.display = "none";
+    document.body.style.overflow = "auto";
+  };
 
-      // Close modal
-      closeBtn.onclick = () => {
-        modal.style.display = "none";
-        document.body.style.overflow = "auto";
-      };
-
-      window.onclick = (e) => {
-        if (e.target === modal) {
-          modal.style.display = "none";
-          document.body.style.overflow = "auto";
-        }
-      };
-  
+  window.onclick = (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+  };
