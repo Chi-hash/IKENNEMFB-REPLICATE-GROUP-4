@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/ASSETS/favicon.png.jpeg" />
+
+    <style>
+      /* --- PAGE SPECIFIC STYLES --- */
+      :root {
+        --primary-color: #004d99;
+        --primary-light: #007bff;
+        --accent-yellow: #ffcc00;
+        --bg-light: #f8f9fa;
+        --text-dark: #0d2034;
+        --text-muted1: #666;
+        --spacing-xl: 80px;
+      }
+
+      /* --- PAGE HERO --- */
+      .contact-hero {
+        background: linear-gradient(
+            rgba(0, 77, 153, 0.9),
+            rgba(0, 51, 102, 0.95)
+          ),
+          url("/ASSETS/welcome-slider1-BlnzCcZx.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        padding: 0 20px;
+      }
+
+      .contact-hero h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+      }
+
+      .breadcrumbs {
+        font-size: 0.9rem;
+        color: var(--accent-yellow);
+        font-weight: 500;
+        font-family: "Poppins", sans-serif;
+      }
+      .breadcrumbs span {
+        color: rgba(255, 255, 255, 0.7);
+        margin: 0 5px;
+      }
+
+      /* --- CONTACT INFO CARDS (Our Location Section) --- */
+      .contact-info-section {
+        padding: var(--spacing-xl) 5% 40px;
+        background-color: white;
+        text-align: center;
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 40px auto 0;
+      }
+
+      .info-card {
+        background: var(--bg-light);
+        padding: 40px 20px;
+        border-radius: 12px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid #eee;
+      }
+
+      .info-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        background: white;
+        border-color: var(--accent-yellow);
+      }
+
+      .info-icon {
+        width: 60px;
+        height: 60px;
+        background-color: rgba(0, 77, 153, 0.1);
+        color: var(--primary-color);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin: 0 auto 20px;
+      }
+
+      .info-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: var(--text-dark);
+      }
+
+      .info-text {
+        color: var(--text-muted1);
+        line-height: 1.6;
+        font-size: 0.95rem;
+      }
+
+      /* --- MAIN CONTACT SECTION (Form & Help Text) --- */
+      .main-contact-section {
+        padding: 60px 5% var(--spacing-xl);
+        background-color: white;
+      }
+
+      .contact-wrapper {
+        display: flex;
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 60px;
+        align-items: flex-start; /* Align top */
+      }
+
+      /* Left Side: Help Text */
+      .contact-text-side {
+        flex: 1;
+      }
+
+      .section-heading {
+        font-size: 2.2rem;
+        color: var(--primary-color);
+        font-weight: 700;
+        margin-bottom: 30px;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .support-block {
+        margin-bottom: 30px;
+        padding-left: 20px;
+        border-left: 3px solid var(--accent-yellow);
+      }
+
+      .support-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 5px;
+      }
+
+      .support-numbers {
+        font-size: 1rem;
+        color: var(--text-muted1);
+        font-family: "Inter", sans-serif;
+      }
+
+      /* Right Side: Form */
+      .contact-form-side {
+        flex: 1.2; /* Slightly wider */
+        background: var(--bg-light);
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: var(--text-dark);
+        font-size: 0.9rem;
+      }
+
+      .form-input,
+      .form-textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-family: inherit;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+        background: white;
+      }
+
+      .form-input:focus,
+      .form-textarea:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(0, 77, 153, 0.1);
+      }
+
+      .form-textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      .submit-btn {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 6px;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.3s;
+      }
+
+      .submit-btn:hover {
+        background-color: #003366;
+      }
+
+      /* --- MAP SECTION --- */
+      .map-section {
+        height: 400px;
+        width: 100%;
+        background-color: #eee; /* Placeholder color */
+      }
+
+      .map-frame {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        .contact-wrapper {
+          flex-direction: column;
+          gap: 40px;
+        }
+        .contact-form-side {
+          width: 100%;
+          padding: 30px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .contact-hero h1 {
+          font-size: 2rem;
+        }
+        .section-heading {
+          font-size: 1.8rem;
+        }
+        .info-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="left logo-side">
+        <img
+          src="ASSETS/logo-DhZDvqg6.jpeg"
+          height="50px"
+          alt="Logo"
+          class="logo"
+        />
+      </div>
+      <div class="right nav-links">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="aboutpage.html">About</a></li>
+          <li><a href="servicepage.html">Services</a></li>
+          <li><a href="blogspage.html">Blog</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="contactuspage.html" class="active">Contact Us</a></li>
+        </ul>
+        <div class="menu-icon" id="menuIcon">
+          <svg
+            class="svg-inline--fa fa-bars"
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fas"
+            data-icon="bars"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+            data-fa-i2svg=""
+          >
+            <path
+              fill="currentColor"
+              d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+            ></path></svg
+          ><!-- <i class="fas fa-bars"></i> Font Awesome fontawesome.com -->
+        </div>
+      </div>
+      <div class="dropdown" id="dropdown">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="aboutpage.html">About</a></li>
+          <li><a href="servicepage.html">Services</a></li>
+          <li><a href="blogspage.html">Blog</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="contactuspage.html" class="active">Contact Us</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="contact-hero">
+      <h1>Contact Us</h1>
+      <div class="breadcrumbs">
+        <a href="index.html" style="color: #ffcc00; text-decoration: none"
+          >Home</a
+        >
+        <span>/</span> Contact
+      </div>
+    </section>
+
+    <!-- CONTACT INFO CARDS -->
+    <section class="contact-info-section">
+      <h2
+        style="color: var(--primary-color); font-size: 2rem; font-weight: 700"
+      >
+        Our Location
+      </h2>
+      <p style="color: #666; margin-top: 10px">
+        Visit us or reach out through any of our channels.
+      </p>
+
+      <div class="info-grid">
+        <!-- Address -->
+        <div class="info-card">
+          <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <h3 class="info-title">Visit Us</h3>
+          <p class="info-text">
+            58, Tai Solarin Street,<br />Ikenne-Remo, Ogun State
+          </p>
+        </div>
+
+        <!-- Email -->
+        <div class="info-card">
+          <div class="info-icon"><i class="fas fa-envelope"></i></div>
+          <h3 class="info-title">Email Us</h3>
+          <p class="info-text">
+            <a href="mailto:admin@ikennemfb.com" style="color: inherit"
+              >admin@ikennemfb.com</a
+            ><br /><a
+              href="mailto:kingshak@ikennemfb.com"
+              style="color: inherit"
+              >kingshak@ikennemfb.com</a
+            >
+          </p>
+        </div>
+
+        <!-- Phone -->
+        <div class="info-card">
+          <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+          <h3 class="info-title">Call Us</h3>
+          <p class="info-text">07050536077<br />08033086092</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT: HELP TEXT & FORM -->
+    <section class="main-contact-section">
+      <div class="contact-wrapper">
+        <!-- Left Side: Help Information -->
+        <div class="contact-text-side">
+          <h2 class="section-heading">How can we help you?</h2>
+          <p style="margin-bottom: 30px; color: #555; line-height: 1.6">
+            Whether you have a question about your account, need assistance with
+            a loan application, or want to provide feedback, we are here to
+            listen.
+          </p>
+
+          <div class="support-block">
+            <h4 class="support-title">Customer Support?</h4>
+            <p class="support-numbers">08069183668, 08065294044</p>
+          </div>
+
+          <div class="support-block">
+            <h4 class="support-title">Need a Loan?</h4>
+            <p class="support-numbers">07065201382, 08166015581</p>
+          </div>
+
+          <div class="support-block" style="border-color: var(--primary-color)">
+            <h4 class="support-title">Opening Hours</h4>
+            <p class="support-numbers">Mon - Fri: 8:00 AM - 4:00 PM</p>
+          </div>
+        </div>
+
+        <!-- Right Side: Contact Form -->
+        <div class="contact-form-side">
+          <h3 style="color: var(--primary-color); margin-bottom: 20px">
+            Send us a Message
+          </h3>
+          <form action="#" method="POST">
+            <div class="form-group">
+              <label class="form-label">Full Name *</label>
+              <input
+                type="text"
+                class="form-input"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Email Address *</label>
+              <input
+                type="email"
+                class="form-input"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Subject</label>
+              <select class="form-input">
+                <option>General Inquiry</option>
+                <option>Loan Inquiry</option>
+                <option>Account Issue</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Message *</label>
+              <textarea
+                class="form-textarea"
+                placeholder="How can we help you today?"
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- GOOGLE MAP (Embed) -->
+    <section class="map-section">
+      <!-- Embed Google Map for Ikenne-Remo -->
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.233032598621!2d3.7121!3d6.7415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10396566605d6c4d%3A0x56c567834678!2sIkenne%2C%20Ogun%20State!5e0!3m2!1sen!2sng!4v1700000000000!5m2!1sen!2sng"
+        class="map-frame"
+        allowfullscreen=""
+        loading="lazy"
+      ></iframe>
+    </section>
+
+    <!-- footer section -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <!-- COLUMN 1: Contact Details -->
+        <div class="footer-section">
+          <h3 class="footer-heading">Our Contact Details</h3>
+          <span class="brand-name">Ikenne Microfinance Bank</span>
+
+          <ul class="contact-list">
+            <!-- Address -->
+            <li class="contact-item">
+              <i class="fas fa-map-marker-alt contact-icon"></i>
+              <span>58, Tai Solarin way, Ikenne-Remo,<br />Ogun State</span>
+            </li>
+            <!-- Emails -->
+            <li class="contact-item">
+              <i class="fas fa-envelope contact-icon"></i>
+              <div>
+                <a href="mailto:kemiawolesi@ikennemfb.com" class="contact-link"
+                  >kemiawolesi@ikennemfb.com</a
+                ><br />
+                <a href="mailto:kingshak@ikennemfb.com" class="contact-link"
+                  >kingshak@ikennemfb.com</a
+                ><br />
+                <a href="mailto:admin@ikennemfb.com" class="contact-link"
+                  >admin@ikennemfb.com</a
+                >
+              </div>
+            </li>
+            <!-- Phones -->
+            <li class="contact-item">
+              <i class="fas fa-phone-alt contact-icon"></i>
+              <div>
+                <a href="tel:08033086092" class="contact-link">08033086092</a>,
+                <a href="tel:07050536077" class="contact-link">07050536077</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- COLUMN 2: Our Links -->
+        <div class="footer-section">
+          <h3 class="footer-heading">Our Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutpage.html">About</a></li>
+            <li><a href="servicepage.html">Services</a></li>
+            <li><a href="blogspage.html">Blog</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contactuspage.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- COLUMN 3: Need a Loan -->
+        <div class="footer-section">
+          <h3 class="footer-heading">Need a Loan?</h3>
+          <p class="footer-text">
+            You can talk to us directly about your financial needs.
+          </p>
+
+          <ul class="contact-list">
+            <li class="contact-item">
+              <i class="fas fa-phone-alt contact-icon"></i>
+              <a href="tel:07065201382" class="contact-link">07065201382</a>
+            </li>
+            <li class="contact-item">
+              <i class="fas fa-phone-alt contact-icon"></i>
+              <a href="tel:08166015581" class="contact-link">08166015581</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- COLUMN 4: Newsletter -->
+        <div class="footer-section">
+          <h3 class="footer-heading">Newsletter</h3>
+          <p class="footer-text">
+            Subscribe to our newsletter for notifications about new updates,
+            rates, and offers.
+          </p>
+
+          <form class="newsletter-form">
+            <input
+              type="email"
+              class="newsletter-input"
+              placeholder="Enter your Email"
+              required
+            />
+            <button type="submit" class="subscribe-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="footer-bottom">
+        &copy; 2024 Ikenne Microfinance Bank. All Rights Reserved.
+      </div>
+    </footer>
+
+    <script src="/index.js"></script>
+    <script src="/all.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blogs</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/all.min.css" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/ASSETS/favicon.png.jpeg" />
+
+    <style>
+      /* --- PAGE SPECIFIC STYLES --- */
+      :root {
+        --primary-color: #004d99;
+        --primary-light: #007bff;
+        --accent-yellow: #ffcc00;
+        --bg-light: #f8f9fa;
+        --text-dark: #0d2034;
+        --spacing-xl: 80px;
+      }
+
+      /* --- BLOG SECTION --- */
+      .blog-section {
+        padding: var(--spacing-xl) 5%;
+        background-color: var(--bg-light);
+        font-family: "Poppins", sans-serif;
+      }
+
+      .section-container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .section-header {
+        margin-bottom: 50px;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      /* BLOG CARD STYLING */
+      .blog-card {
+        display: flex;
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .blog-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .blog-img-container {
+        width: 40%; /* Image takes 40% width */
+        min-height: 250px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .blog-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .blog-card:hover .blog-img {
+        transform: scale(1.05);
+      }
+
+      .blog-content {
+        width: 60%; /* Text takes 60% width */
+        padding: 35px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .blog-meta {
+        font-size: 0.85rem;
+        color: var(--accent-yellow);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .separator {
+        width: 4px;
+        height: 4px;
+        background-color: #ccc;
+        border-radius: 50%;
+      }
+
+      .blog-date {
+        color: var(--text-muted);
+        font-weight: 400;
+        text-transform: none;
+      }
+
+      .blog-title {
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        margin-bottom: 15px;
+        font-weight: 700;
+        line-height: 1.3;
+      }
+
+      .blog-title a {
+        text-decoration: none;
+        color: inherit;
+        transition: color 0.3s;
+      }
+
+      .blog-title a:hover {
+        color: var(--primary-light);
+      }
+
+      .blog-excerpt {
+        color: #555;
+        line-height: 1.7;
+        margin-bottom: 20px;
+        font-size: 0.95rem;
+      }
+
+      .read-more {
+        display: inline-flex;
+        align-items: center;
+        color: var(--primary-color);
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: gap 0.3s;
+        gap: 8px;
+      }
+
+      .read-more:hover {
+        gap: 12px;
+        color: var(--accent-yellow);
+      }
+
+      /* PAGINATION */
+      .pagination {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 60px;
+      }
+
+      .page-link {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 1px solid #ddd;
+        color: var(--text-dark);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s;
+      }
+
+      .page-link.active,
+      .page-link:hover {
+        background-color: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        .blog-card {
+          flex-direction: column;
+        }
+        .blog-img-container,
+        .blog-content {
+          width: 100%;
+        }
+        .blog-img-container {
+          height: 250px;
+        }
+        .blog-content {
+          padding: 25px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .page-hero h1 {
+          font-size: 2rem;
+        }
+        .section-title {
+          font-size: 2rem;
+        }
+        .blog-title {
+          font-size: 1.3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="left logo-side">
+        <img
+          src="ASSETS/logo-DhZDvqg6.jpeg"
+          height="50px"
+          alt="Logo"
+          class="logo"
+        />
+      </div>
+      <div class="right nav-links">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="aboutpage.html">About</a></li>
+          <li><a href="servicepage.html">Services</a></li>
+          <li><a href="blogspage.html" class="active">Blog</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="contactuspage.html">Contact Us</a></li>
+        </ul>
+        <div class="menu-icon" id="menuIcon">
+          <svg
+            class="svg-inline--fa fa-bars"
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fas"
+            data-icon="bars"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+            data-fa-i2svg=""
+          >
+            <path
+              fill="currentColor"
+              d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+            ></path></svg
+          ><!-- <i class="fas fa-bars"></i> Font Awesome fontawesome.com -->
+        </div>
+      </div>
+      <div class="dropdown" id="dropdown">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="aboutpage.html">About</a></li>
+          <li><a href="servicepage.html">Services</a></li>
+          <li><a href="blogspage.html" class="active">Blog</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="contactuspage.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <section class="page-hero">
+      <h1>Our Blog</h1>
+      <div class="breadcrumbs">
+        <a href="index.html" style="color: #ffcc00; text-decoration: none"
+          >Home</a
+        >
+        <span>/</span> Blog
+      </div>
+    </section>
+
+    <!-- BLOG LIST SECTION -->
+    <section class="blog-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Latest Updates</h2>
+          <p style="color: #666">
+            Insights, news, and stories from Ikenne Microfinance Bank.
+          </p>
+        </div>
+
+        <!-- Blog Post 1 -->
+        <article class="blog-card">
+          <div class="blog-img-container">
+            <img
+              src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Financial Inclusion"
+              class="blog-img"
+            />
+          </div>
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span>Community</span>
+              <span class="separator"></span>
+              <span class="blog-date">Oct 24, 2023</span>
+            </div>
+            <h3 class="blog-title">
+              <a href="#">Empowering Communities Through Financial Inclusion</a>
+            </h3>
+            <p class="blog-excerpt">
+              Discover how microfinance banks are transforming lives by
+              providing financial services to underserved communities. Learn the
+              benefits of inclusive banking and its impact on economic
+              development.
+            </p>
+            <a href="#" class="read-more"
+              >Read More <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </article>
+
+        <!-- Blog Post 2 -->
+        <article class="blog-card">
+          <div class="blog-img-container">
+            <img
+              src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Success Stories"
+              class="blog-img"
+            />
+          </div>
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span>Success Stories</span>
+              <span class="separator"></span>
+              <span class="blog-date">Sep 15, 2023</span>
+            </div>
+            <h3 class="blog-title">
+              <a href="#">The Success Stories Behind Micro Loans</a>
+            </h3>
+            <p class="blog-excerpt">
+              Read inspiring success stories of individuals and small businesses
+              who achieved their dreams with the help of micro loans. See how
+              these loans create ripple effects in the economy.
+            </p>
+            <a href="#" class="read-more"
+              >Read More <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </article>
+
+        <!-- Blog Post 3 (Dummy Post for Balance) -->
+        <article class="blog-card">
+          <div class="blog-img-container">
+            <img
+              src="https://images.unsplash.com/photo-1604594849809-dfedbc827105?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Savings Tips"
+              class="blog-img"
+            />
+          </div>
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span>Financial Tips</span>
+              <span class="separator"></span>
+              <span class="blog-date">Aug 02, 2023</span>
+            </div>
+            <h3 class="blog-title">
+              <a href="#">5 Smart Saving Habits for Small Business Owners</a>
+            </h3>
+            <p class="blog-excerpt">
+              Managing cash flow is critical for any SME. Here are five
+              practical tips to help you save more, invest wisely, and keep your
+              business financially healthy during tough times.
+            </p>
+            <a href="#" class="read-more"
+              >Read More <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </article>
+
+        <!-- Pagination -->
+        <div class="pagination">
+          <a href="#" class="page-link active">1</a>
+          <a href="#" class="page-link">2</a>
+          <a href="#" class="page-link">3</a>
+          <a href="#" class="page-link"><i class="fas fa-chevron-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer section -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <!-- COLUMN 1: Contact Details -->
+        <div class="footer-section">
+          <h3 class="footer-heading">Our Contact Details</h3>
+          <span class="brand-name">Ikenne Microfinance Bank</span>
+
+          <ul class="contact-list">
+            <!-- Address -->
+            <li class="contact-item">
+              <i class="fas fa-map-marker-alt contact-icon"></i>
+              <span>58, Tai Solarin way, Ikenne-Remo,<br />Ogun State</span>
+            </li>
+            <!-- Emails -->
+            <li class="contact-item">
+              <i class="fas fa-envelope contact-icon"></i>
+              <div>
+                <a href="mailto:kemiawolesi@ikennemfb.com" class="contact-link"
+                  >kemiawolesi@ikennemfb.com</a
+                ><br />
+                <a href="mailto:kingshak@ikennemfb.com" class="contact-link"
+                  >kingshak@ikennemfb.com</a
+                ><br />
+                <a href="mailto:admin@ikennemfb.com" class="contact-link"
+                  >admin@ikennemfb.com</a
+                >
+              </div>
+            </li>
+            <!-- Phones -->
+            <li class="contact-item">
+              <i class="fas fa-phone-alt contact-icon"></i>
+              <div>
+                <a href="tel:08033086092" class="contact-link">08033086092</a>,
+                <a href="tel:07050536077" class="contact-link">07050536077</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- COLUMN 2: Our Links -->
+        <div class="footer-section">
+          <h3 class="footer-heading">Our Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutpage.html">About</a></li>
+            <li><a href="servicepage.html">Services</a></li>
+            <li><a href="blogspage.html">Blog</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contactuspage.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- COLUMN 3: Need a Loan -->
+        <div class="footer-section">
+          <h3 class="footer-heading">Need a Loan?</h3>
+          <p class="footer-text">
+            You can talk to us directly about your financial needs.
+          </p>
+
+          <ul class="contact-list">
+            <li class="contact-item">
+              <i class="fas fa-phone-alt contact-icon"></i>
+              <a href="tel:07065201382" class="contact-link">07065201382</a>
+            </li>
+            <li class="contact-item">
+              <i class="fas fa-phone-alt contact-icon"></i>
+              <a href="tel:08166015581" class="contact-link">08166015581</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- COLUMN 4: Newsletter -->
+        <div class="footer-section">
+          <h3 class="footer-heading">Newsletter</h3>
+          <p class="footer-text">
+            Subscribe to our newsletter for notifications about new updates,
+            rates, and offers.
+          </p>
+
+          <form class="newsletter-form">
+            <input
+              type="email"
+              class="newsletter-input"
+              placeholder="Enter your Email"
+              required
+            />
+            <button type="submit" class="subscribe-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="footer-bottom">
+        &copy; 2024 Ikenne Microfinance Bank. All Rights Reserved.
+      </div>
+    </footer>
+    <script src="/index.js"></script>
+    <script src="/all.min.js"></script>
+  </body>
+</html>

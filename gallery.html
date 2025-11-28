@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/all.min.css" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/ASSETS/favicon.png.jpeg" />
+  </head>
+  <body>
+    <header>
+      <div class="left logo-side">
+        <img
+          src="ASSETS/logo-DhZDvqg6.jpeg"
+          height="50px"
+          alt="Logo"
+          class="logo"
+        />
+      </div>
+      <div class="right nav-links">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="aboutpage.html">About</a></li>
+          <li><a href="servicepage.html">Services</a></li>
+          <li><a href="blogspage.html">Blog</a></li>
+          <li><a href="gallery.html" class="active">Gallery</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="contactuspage.html">Contact Us</a></li>
+        </ul>
+        <div class="menu-icon" id="menuIcon">
+          <svg
+            class="svg-inline--fa fa-bars"
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fas"
+            data-icon="bars"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+            data-fa-i2svg=""
+          >
+            <path
+              fill="currentColor"
+              d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+            ></path></svg
+          ><!-- <i class="fas fa-bars"></i> Font Awesome fontawesome.com -->
+        </div>
+      </div>
+      <div class="dropdown" id="dropdown">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="aboutpage.html">About</a></li>
+          <li><a href="servicepage.html">Services</a></li>
+          <li><a href="blogspage.html">Blog</a></li>
+          <li><a href="gallery.html" class="active">Gallery</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="contactuspage.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- gallery section -->
+    <section id="gallery">
+      <div class="container">
+        <h1 class="section-title">Photo Gallery</h1>
+        <p class="section-subtitle">
+          Moments from our events and community outreach.
+        </p>
+
+        <div class="gallery-slider-container">
+          <div class="gallery-slider">
+            <!-- Prev Button -->
+            <button class="gallery-button" id="prevBtn" aria-label="Previous">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <!-- TRACK -->
+            <div class="gallery-slider-content">
+              <!-- Slide 1 -->
+              <div class="gallery-slide">
+                <img
+                  src="ASSETS/slider1-CQZ_oK_V.jpeg"
+                  onerror="this.src='https://placehold.co/600x400?text=Event+1'"
+                  alt="Gallery Image 1"
+                />
+              </div>
+              <!-- Slide 2 -->
+              <div class="gallery-slide">
+                <img
+                  src="ASSETS/slider2-Cm9kEY12.jpeg"
+                  onerror="this.src='https://placehold.co/600x400?text=Event+2'"
+                  alt="Gallery Image 2"
+                />
+              </div>
+              <!-- Slide 3 -->
+              <div class="gallery-slide">
+                <img
+                  src="ASSETS/slider3-FtLDsXfn.jpeg"
+                  onerror="this.src='https://placehold.co/600x400?text=Event+3'"
+                  alt="Gallery Image 3"
+                />
+              </div>
+              <!-- Slide 4 -->
+              <div class="gallery-slide">
+                <img
+                  src="ASSETS/slider4-4rbhT0hg.jpeg"
+                  onerror="this.src='https://placehold.co/600x400?text=Event+4'"
+                  alt="Gallery Image 4"
+                />
+              </div>
+              <!-- Slide 5 -->
+              <div class="gallery-slide">
+                <img
+                  src="ASSETS/slider5-DbZMnM0U.jpeg"
+                  onerror="this.src='https://placehold.co/600x400?text=Event+5'"
+                  alt="Gallery Image 5"
+                />
+              </div>
+              <!-- Slide 6 -->
+              <div class="gallery-slide">
+                <img
+                  src="ASSETS/slider1-CQZ_oK_V.jpeg"
+                  onerror="this.src='https://placehold.co/600x400?text=Event+6'"
+                  alt="Gallery Image 6"
+                />
+              </div>
+              <!-- Slide 7 (Video) -->
+              <div class="gallery-slide">
+                <video
+                  src="ASSETS/IMG_4941-CNkKV2uC (1).mp4"
+                  poster="https://placehold.co/600x400?text=Video+Highlight+1"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                ></video>
+              </div>
+              <!-- Slide 8 (Video) -->
+              <div class="gallery-slide">
+                <video
+                  src="ASSETS/video2-C4rred_g (1).mp4"
+                  poster="https://placehold.co/600x400?text=Video+Highlight+2"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                ></video>
+              </div>
+            </div>
+
+            <!-- Next Button -->
+            <button class="gallery-button" id="nextBtn" aria-label="Next">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer section -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <!-- COLUMN 1: Contact Details -->
+        <div class="footer-section">
+          <h3 class="footer-heading">Our Contact Details</h3>
+          <span class="brand-name">Ikenne Microfinance Bank</span>
+
+          <ul class="contact-list">
+            <!-- Address -->
+            <li class="contact-item">
+              <i class="fas fa-map-marker-alt contact-icon"></i>
+              <span>58, Tai Solarin way, Ikenne-Remo,<br />Ogun State</span>
+            </li>
+            <!-- Emails -->
+            <li class="contact-item">
+              <i class="fas fa-envelope contact-icon"></i>
+              <div>
+                <a href="mailto:kemiawolesi@ikennemfb.com" class="contact-link"
+                  >kemiawolesi@ikennemfb.com</a
+                ><br />
+                <a href="mailto:kingshak@ikennemfb.com" class="contact-link"
+                  >kingshak@ikennemfb.com</a
+                ><br />
+                <a href="mailto:admin@ikennemfb.com" class="contact-link"
+                  >admin@ikennemfb.com</a
+                >
+              </div>
+            </li>
+            <!-- Phones -->
+            <li class="contact-item">
+              <i class="fas fa-phone-alt contact-icon"></i>
+              <div>
+                <a href="tel:08033086092" class="contact-link">08033086092</a>,
+                <a href="tel:07050536077" class="contact-link">07050536077</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- COLUMN 2: Our Links -->
+        <div class="footer-section">
+          <h3 class="footer-heading">Our Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutpage.html">About</a></li>
+            <li><a href="servicepage.html">Services</a></li>
+            <li><a href="blogspage.html">Blog</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contactuspage.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- COLUMN 3: Need a Loan -->
+        <div class="footer-section">
+          <h3 class="footer-heading">Need a Loan?</h3>
+          <p class="footer-text">
+            You can talk to us directly about your financial needs.
+          </p>
+
+          <ul class="contact-list">
+            <li class="contact-item">
+              <i class="fas fa-phone-alt contact-icon"></i>
+              <a href="tel:07065201382" class="contact-link">07065201382</a>
+            </li>
+            <li class="contact-item">
+              <i class="fas fa-phone-alt contact-icon"></i>
+              <a href="tel:08166015581" class="contact-link">08166015581</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- COLUMN 4: Newsletter -->
+        <div class="footer-section">
+          <h3 class="footer-heading">Newsletter</h3>
+          <p class="footer-text">
+            Subscribe to our newsletter for notifications about new updates,
+            rates, and offers.
+          </p>
+
+          <form class="newsletter-form">
+            <input
+              type="email"
+              class="newsletter-input"
+              placeholder="Enter your Email"
+              required
+            />
+            <button type="submit" class="subscribe-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="footer-bottom">
+        &copy; 2024 Ikenne Microfinance Bank. All Rights Reserved.
+      </div>
+    </footer>
+    <script src="/index.js"></script>
+    <script src="/all.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/all.min.css" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/ASSETS/favicon.png.jpeg" />
+    <!-- code for pop up -->
+    <style>
+      /* MODAL STYLES - Enhanced Version */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        animation: fadeIn 0.4s;
+      }
+
+      .modal-content {
+        position: relative;
+        background: white;
+        margin: 5% auto;
+        max-width: 900px;
+        width: 90%;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        animation: slideUp 0.5s ease-out;
+      }
+
+      .modal-body {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .modal-img {
+        width: 40%;
+        object-fit: cover;
+      }
+
+      .modal-info {
+        padding: 40px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .modal-info h3 {
+        margin: 0 0 10px 0;
+        font-size: 2rem;
+        color: #003087;
+      }
+
+      .modal-role {
+        color: #f4b400;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+      }
+
+      .modal-bio {
+        line-height: 1.8;
+        color: #444;
+        font-size: 1.05rem;
+      }
+
+      .close {
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        font-size: 40px;
+        font-weight: bold;
+        color: rgb(113, 110, 110);
+
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s;
+      }
+
+      .close:hover {
+        color: rgb(0, 0, 0);
+        transform: scale(1.1);
+      }
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+        .modal-body {
+          flex-direction: column;
+        }
+        .modal-img {
+          width: 100%;
+          height: 300px;
+        }
+        .modal-info {
+          padding: 30px;
+        }
+        .modal-info h3 {
+          font-size: 1.6rem;
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          transform: translateY(50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .team-card {
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .team-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="left logo-side">
+        <img
+          src="ASSETS/logo-DhZDvqg6.jpeg"
+          height="50px"
+          alt="Logo"
+          class="logo"
+        />
+      </div>
+      <div class="right nav-links">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="aboutpage.html" class="active">About</a></li>
+          <li><a href="servicepage.html">Services</a></li>
+          <li><a href="blogspage.html">Blog</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="contactuspage.html">Contact Us</a></li>
+        </ul>
+        <div class="menu-icon" id="menuIcon">
+          <svg
+            class="svg-inline--fa fa-bars"
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fas"
+            data-icon="bars"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+            data-fa-i2svg=""
+          >
+            <path
+              fill="currentColor"
+              d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+            ></path></svg
+          ><!-- <i class="fas fa-bars"></i> Font Awesome fontawesome.com -->
+        </div>
+      </div>
+      <div class="dropdown" id="dropdown">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="aboutpage.html" class="active">About</a></li>
+          <li><a href="servicepage.html">Services</a></li>
+          <li><a href="blogspage.html">Blog</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="contactuspage.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </header>
+    <!-- history section -->
+    <section class="history-section">
+      <div class="history-container">
+        <div class="history-title">
+          <h2>Our History</h2>
+        </div>
+        <div class="history-content">
+          <p>
+            Ikenne Microfinance Bank was converted in January 2008 from Ikenne
+            Community Bank. The Bank was incorporated in Nigeria as a Private
+            Limited Liability Company in October 1993 and commenced business
+            activities in June 1994 with its registered address at Tai Solarin
+            Way, P.M.B. 2004, Ikenne-Remo, Ogun State.
+          </p>
+          <p>
+            Ikenne Microfinance Bank has been operating as a unit Bank for the
+            past Ten years at the same registered address. The Bank's vision is
+            to provide efficient services to the underserved microenterprise
+            sector thus bridging the existing gap, and ultimately create wealth,
+            alleviate poverty and reduce unemployment in the sector.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOARD OF DIRECTORS -->
+    <!-- BOARD OF DIRECTORS -->
+    <section class="team-section">
+      <div class="section-container" style="text-align: center">
+        <h2 class="section-title">Meet Our Board of Directors</h2>
+        <div class="team-grid" style="margin-top: 50px">
+          <!-- Card 1 -->
+          <div
+            class="team-card"
+            data-name="Matthew Kehinde Sulu"
+            data-role="Chairman"
+            data-img="ASSETS/DSC_3160-mevcAoOw.jpg"
+            data-bio="Matthew Kehinde Sulu is a seasoned accountant with over 35 years of experience in the Nigerian public sector. He played a key role in managing the salaries and wages of government employees nationwide and was involved in budget planning and implementation at the Nigerian National Petroleum Corporation. He holds a Bachelor of Science in Accounting from Howard University and previously served as an Assistant Director of Revenue at the Department of Petroleum Resources."
+          >
+            <img
+              src="ASSETS/DSC_3160-mevcAoOw.jpg"
+              onerror="this.src='https://placehold.co/400x400?text=Chairman'"
+              alt="Matthew Kehinde Sulu"
+              class="team-img"
+            />
+            <div class="team-info">
+              <div class="team-name">Matthew Kehinde Sulu</div>
+              <div class="team-role">Chairman</div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="team-card"
+            data-name="Otunba Olufemi Allen"
+            data-role="Director"
+            data-img="ASSETS/otunba_olufemi-BcPH-_Tf.jpeg"
+            data-bio="Olufemi Allen is a Nigerian Chartered Accountant and Tax Expert with over three decades in public finance, auditing, and governance. He revolutionized revenue generation in Ogun State, increasing monthly PAYE from under ₦10 million to over ₦80 million. A Fellow of ICAN and CITN, he holds a First Class LLB and has led forensic audits for major corporations and government bodies."
+          >
+            <img
+              src="ASSETS/otunba_olufemi-BcPH-_Tf.jpeg"
+              onerror="this.src='https://placehold.co/400x400?text=Otunba+Allen'"
+              alt="Otunba Olufemi Allen"
+              class="team-img"
+            />
+            <div class="team-info">
+              <div class="team-name">Otunba Olufemi Allen</div>
+              <div class="team-role">Director</div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="team-card"
+            data-name="Sotunde Olanrewaju Olumuyiwa (FCA)"
+            data-role="Director"
+            data-img="ASSETS/lanre-hFSlEh-Y.jpeg"
+            data-bio="Sotunde Olanrewaju Olumuyiwa (FCA) is a results-oriented finance professional with over 10 years in the energy sector. He excels in financial management, budget development, cost analysis, and strategic planning. A strong leader and team player committed to organizational excellence."
+          >
+            <img
+              src="ASSETS/lanre-hFSlEh-Y.jpeg"
+              onerror="this.src='https://placehold.co/400x400?text=Lanre+Sotunde'"
+              alt="Sotunde Olanrewaju"
+              class="team-img"
+            />
+            <div class="team-info">
+              <div class="team-name">Sotunde Olanrewaju Olumuyiwa</div>
+              <div class="team-role">Director</div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div
+            class="team-card"
+            data-name="Barr. Adeniyi Adekunle"
+            data-role="Director"
+            data-img="ASSETS/DSC_3165-BTI1a1ce.jpg"
+            data-bio="Adeniyi Adekunle is a versatile legal and financial expert with LLM (Unilag) and MBA (LASU). Fellow of ICAN and CITN with over 20 years experience. Principal Partner at Kunle Adeniyi & Co (Chartered Accountants) and Consultant at Towobola Adeniyi Chambers."
+          >
+            <img
+              src="ASSETS/DSC_3165-BTI1a1ce.jpg"
+              onerror="this.src='https://placehold.co/400x400?text=Barr+Adeniyi'"
+              alt="Adeniyi Adekunle"
+              class="team-img"
+            />
+            <div class="team-info">
+              <div class="team-name">Barr. Adeniyi Adekunle</div>
+              <div class="team-role">Director</div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div
+            class="team-card"
+            data-name="Gbolahan Adenuga"
+            data-role="Director"
+            data-img="ASSETS/DSC_3171-DK47bZkr.jpg"
+            data-bio="Gbolahan Adenuga is the Managing Director of Premier Standard Industrial Ltd. He holds an MBA from Lancaster University and MPharm from University of Brighton, UK. A qualified UK pharmacist and Member of Institute of Directors, he leads nationwide operations with focus on profit, growth and innovation."
+          >
+            <img
+              src="ASSETS/DSC_3171-DK47bZkr.jpg"
+              onerror="this.src='https://placehold.co/400x400?text=Gbolahan+Adenuga'"
+              alt="Gbolahan Adenuga"
+              class="team-img"
+            />
+            <div class="team-info">
+              <div class="team-name">Gbolahan Adenuga</div>
+              <div class="team-role">Director</div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div
+            class="team-card"
+            data-name="Awolesi Oluwakemi Funmilayo"
+            data-role="Managing Director/CEO"
+            data-img="ASSETS/mrs awolewi.jpg"
+            data-bio="Awolesi Oluwakemi Funmilayo has over 20 years banking experience with expertise in credit, risk management, marketing and operations. As Managing Director/CEO, she leads Ikenne Microfinance Bank with a vision of excellence, growth and community impact."
+          >
+            <img
+              src="ASSETS/mrs awolewi.jpg"
+              onerror="this.src='https://placehold.co/400x400?text=MD+CEO'"
+              alt="Awolesi Oluwakemi"
+              class="team-img"
+            />
+            <div class="team-info">
+              <div class="team-name">Awolesi Oluwakemi Funmilayo</div>
+              <div class="team-role">Managing Director/CEO</div>
+            </div>
+          </div>
+
+          <!-- Card 7 -->
+          <div
+            class="team-card"
+            data-name="Barr. Adenuga Adeleke"
+            data-role="Company Secretary"
+            data-img="ASSETS/barr_adenuga-BP4SzLtK.jpeg"
+            data-bio="Barr. Adenuga Adeleke holds LLB (Ogun State University) and B.L. (Nigerian Law School). A seasoned legal practitioner with experience across top chambers in Nigeria since 1999. Currently serves as Company Secretary with strong expertise in corporate governance and legal advisory."
+          >
+            <img
+              src="ASSETS/barr_adenuga-BP4SzLtK.jpeg"
+              onerror="this.src='https://placehold.co/400x400?text=Barr+Adenuga'"
+              alt="Barr. Adenuga Adeleke"
+              class="team-img"
+            />
+            <div class="team-info">
+              <div class="team-name">Barr. Adenuga Adeleke</div>
+              <div class="team-role">Company Secretary</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Management Staff -->
+    <section class="team-section">
+      <div class="section-container" style="text-align: center">
+        <h2 class="section-title">Management Staff</h2>
+
+        <div class="team-grid" style="margin-top: 50px">
+          <!-- Member 1 -->
+          <div
+            class="team-card"
+            data-name="Awolesi Oluwakemi Funmilayo"
+            data-role="Managing Director/CEO"
+            data-img="ASSETS/mrs awolewi.jpg"
+            data-bio="Awolesi Oluwakemi Funmilayo has over 20 years banking experience with expertise in credit, risk management, marketing and operations. As Managing Director/CEO, she leads Ikenne Microfinance Bank with a vision of excellence, growth and community impact."
+          >
+            <img
+              src="ASSETS/mrs awolewi.jpg"
+              onerror="this.src='https://placehold.co/400x400?text=MD+CEO'"
+              alt="Awolesi Oluwakemi"
+              class="team-img"
+            />
+            <div class="team-info">
+              <div class="team-name">Awolesi Oluwakemi Funmilayo</div>
+              <div class="team-role">Managing Director/CEO</div>
+            </div>
+          </div>
+
+          <!-- Member 2 -->
+          <div
+            class="team-card"
+            data-name=""
+            data-role=""
+            data-img=""
+            data-bio=""
+          >
+            <img
+              src="ASSETS/pastor oluwatoyin.jpg"
+              onerror="this.src='https://placehold.co/400x400?text=Director+2'"
+              alt="Director"
+              class="team-img"
+            />
+            <div class="team-info">
+              <div class="team-name">Pastor Oluwatoyin Rufus Patrick</div>
+              <div class="team-role">Internal Auditor</div>
+            </div>
+          </div>
+          <!-- Member 3 -->
+          <div
+            class="team-card"
+            data-name=""
+            data-role=""
+            data-img=""
+            data-bio=""
+          >
+            <img
+              src="ASSETS/DSC_3236-C-txme2m.jpg"
+              onerror="this.src='https://placehold.co/400x400?text=Director+3'"
+              alt="Director"
+              class="team-img"
+            />
+            <div class="team-info">
+              <div class="team-name">Mrs. Oyegunwa Oluwabunmi Margaret</div>
+              <div class="team-role">Head of Operations</div>
+            </div>
+          </div>
+
+          <!-- Member 4 -->
+          <div
+            class="team-card"
+            data-name=""
+            data-role=""
+            data-img=""
+            data-bio=""
+          >
+            <img
+              src="ASSETS/DSC_3208-WYoN1pru.jpg"
+              onerror="this.src='https://placehold.co/400x400?text=Director+4'"
+              alt="Director"
+              class="team-img"
+            />
+            <div class="team-info">
+              <div class="team-name">Mrs. Allen Remi</div>
+              <div class="team-role">Head Risk Management/Recovery</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODAL -->
+    <div id="teamModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+
+        <div class="modal-body">
+          <img id="modalImg" class="modal-img" src="" alt="Team Member" />
+          <div class="modal-info">
+            <h3 id="modalName"></h3>
+            <p id="modalRole" class="modal-role"></p>
+            <p id="modalBio" class="modal-bio"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer section -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <!-- COLUMN 1: Contact Details -->
+        <div class="footer-section">
+          <h3 class="footer-heading">Our Contact Details</h3>
+          <span class="brand-name">Ikenne Microfinance Bank</span>
+
+          <ul class="contact-list">
+            <!-- Address -->
+            <li class="contact-item">
+              <i class="fas fa-map-marker-alt contact-icon"></i>
+              <span>58, Tai Solarin way, Ikenne-Remo,<br />Ogun State</span>
+            </li>
+            <!-- Emails -->
+            <li class="contact-item">
+              <i class="fas fa-envelope contact-icon"></i>
+              <div>
+                <a href="mailto:kemiawolesi@ikennemfb.com" class="contact-link"
+                  >kemiawolesi@ikennemfb.com</a
+                ><br />
+                <a href="mailto:kingshak@ikennemfb.com" class="contact-link"
+                  >kingshak@ikennemfb.com</a
+                ><br />
+                <a href="mailto:admin@ikennemfb.com" class="contact-link"
+                  >admin@ikennemfb.com</a
+                >
+              </div>
+            </li>
+            <!-- Phones -->
+            <li class="contact-item">
+              <i class="fas fa-phone-alt contact-icon"></i>
+              <div>
+                <a href="tel:08033086092" class="contact-link">08033086092</a>,
+                <a href="tel:07050536077" class="contact-link">07050536077</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- COLUMN 2: Our Links -->
+        <div class="footer-section">
+          <h3 class="footer-heading">Our Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutpage.html">About</a></li>
+            <li><a href="servicepage.html">Services</a></li>
+            <li><a href="blogspage.html">Blog</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contactuspage.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- COLUMN 3: Need a Loan -->
+        <div class="footer-section">
+          <h3 class="footer-heading">Need a Loan?</h3>
+          <p class="footer-text">
+            You can talk to us directly about your financial needs.
+          </p>
+
+          <ul class="contact-list">
+            <li class="contact-item">
+              <i class="fas fa-phone-alt contact-icon"></i>
+              <a href="tel:07065201382" class="contact-link">07065201382</a>
+            </li>
+            <li class="contact-item">
+              <i class="fas fa-phone-alt contact-icon"></i>
+              <a href="tel:08166015581" class="contact-link">08166015581</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- COLUMN 4: Newsletter -->
+        <div class="footer-section">
+          <h3 class="footer-heading">Newsletter</h3>
+          <p class="footer-text">
+            Subscribe to our newsletter for notifications about new updates,
+            rates, and offers.
+          </p>
+
+          <form class="newsletter-form">
+            <input
+              type="email"
+              class="newsletter-input"
+              placeholder="Enter your Email"
+              required
+            />
+            <button type="submit" class="subscribe-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="footer-bottom">
+        &copy; 2024 Ikenne Microfinance Bank. All Rights Reserved.
+      </div>
+    </footer>
+
+    <script src="/index.js"></script>
+    <script src="/all.min.js"></script>
+  </body>
+</html>

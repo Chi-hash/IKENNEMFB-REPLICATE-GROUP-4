@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Services</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/ASSETS/favicon.png.jpeg" />
+
+    <!-- 1. Load Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <style>
+      /* --- CSS VARIABLES (Restored for standalone use) --- */
+      :root {
+        --primary-color: #004d99;
+        --primary-light: #007bff;
+        --accent-yellow: #ffcc00;
+        --bg-light: #f8f9fa;
+        --text-dark: #0d2034;
+        --text-light: #555;
+        --spacing-xl: 80px;
+      }
+
+      /* --- SERVICES SECTION CSS --- */
+      .services-section {
+        padding: 80px 5%;
+        background-color: var(--bg-light);
+        font-family: "Poppins", sans-serif;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        font-weight: 700;
+        margin-bottom: 15px;
+        position: relative;
+        display: inline-block;
+      }
+
+      /* Decorative underline */
+      .section-title::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: var(--accent-yellow);
+        margin: 10px auto 0;
+        border-radius: 2px;
+      }
+
+      .section-subtitle {
+        color: var(--text-light);
+        max-width: 700px;
+        margin: 0 auto 50px;
+        line-height: 1.6;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* --- CARD STYLING --- */
+      .service-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease,
+          border-color 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        cursor: pointer;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 77, 153, 0.15);
+        border-color: var(--primary-color);
+      }
+
+      /* Icon Box */
+      .service-icon-box {
+        background-color: rgba(0, 77, 153, 0.05);
+        padding: 40px; /* Increased padding slightly for balance */
+        text-align: center;
+        border-bottom: 1px solid #eee;
+      }
+
+      /* ICON STYLING - SIZE CONTROL IS HERE */
+      .service-icon-box i {
+        display: inline-block;
+        /* CHANGED: Increased from 3rem to 4.5rem */
+        font-size: 4.5rem;
+        color: var(--primary-color);
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+
+      .service-card:hover .service-icon-box i {
+        transform: scale(1.15);
+        color: var(--accent-yellow);
+      }
+
+      /* Content Area */
+      .service-content {
+        padding: 30px;
+        flex-grow: 1;
+        text-align: left;
+      }
+
+      .service-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      /* List Styling */
+      .service-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .service-list li {
+        position: relative;
+        padding-left: 25px;
+        margin-bottom: 12px;
+        color: var(--text-light);
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      .service-list li::before {
+        content: "\f00c"; /* FontAwesome Check Icon */
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        top: 3px;
+        color: var(--accent-yellow);
+        font-size: 0.8rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        .services-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+        .section-title {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="left logo-side">
+        <img
+          src="ASSETS/logo-DhZDvqg6.jpeg"
+          height="50px"
+          alt="Logo"
+          class="logo"
+        />
+      </div>
+      <div class="right nav-links">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="aboutpage.html">About</a></li>
+          <li><a href="servicepage.html" class="active">Services</a></li>
+          <li><a href="blogspage.html">Blog</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="#">Resources</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+        <div class="menu-icon" id="menuIcon">
+          <svg
+            class="svg-inline--fa fa-bars"
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fas"
+            data-icon="bars"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+            data-fa-i2svg=""
+          >
+            <path
+              fill="currentColor"
+              d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+            ></path>
+          </svg>
+        </div>
+      </div>
+      <div class="dropdown" id="dropdown">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="aboutpage.html">About</a></li>
+          <li><a href="servicepage.html" class="active">Services</a></li>
+          <li><a href="blogspage.html">Blog</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="#">Resources</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </header>
+    <!-- history section -->
+    <section class="history-section">
+      <div class="history-container">
+        <div class="history-title">
+          <h2>Our Services</h2>
+        </div>
+        <div class="history-content" style="padding: 20px">
+          <p style="font-size: 18px">
+            At Ikenne Microfinance Bank, we are dedicated to empowering
+            individuals. We offer demand-driven microfinance services to
+            microenterpreneurs in the most professional and efficient manner, in
+            order to meet their needs, and grow their businesses, the bank is
+            working with highly skilled and efficient management team and staff
+            to achieve this mission.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES GRID SECTION -->
+
+    <section class="services-section">
+      <div class="section-container" style="text-align: center">
+        <h2 class="section-title">Banking Solutions for You</h2>
+        <p class="section-subtitle">
+          We offer a wide range of financial products designed to meet your
+          personal and business needs.
+        </p>
+
+        <div class="services-grid">
+          <!-- -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <i class="fas fa-user-plus"></i>
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">Ikenne Regular Current Account</h3>
+              <ul class="service-list">
+                <li>Opening of Account</li>
+                <li>Two passport photographs</li>
+                <li>Valid Identification Card</li>
+                <li>
+                  Salary Account to be opened through introduction letter from
+                  employer
+                </li>
+                <li>Access to loan and overdraft</li>
+                <li>Access to third party withdrawal</li>
+                <li>Bank Verification Number</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">Ereke-Wise Account</h3>
+              <ul class="service-list">
+                <li>Opening of Account</li>
+                <li>Two passport photographs</li>
+                <li>Attractive interest</li>
+                <li>COT free</li>
+                <li>Access to third party withdrawal</li>
+                <li>Access to Cheque book</li>
+                <li>BVN</li>
+                <li>Electricity Bill</li>
+                <li>Valid Identity Card</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <i class="fas fa-hand-holding-usd"></i>
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">Regular Savings Account</h3>
+
+              <ul class="service-list">
+                <li>Opening of Account</li>
+                <li>Two passport photographs</li>
+                <li>Valid Identity Card</li>
+                <li>Account passbook</li>
+                <li>BVN</li>
+                <li>Electricity Bill</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <i class="fas fa-exchange-alt"></i>
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">Daily Savings (Daily Contribution)</h3>
+              <ul class="service-list">
+                <li>Opening of Account</li>
+                <li>Two passport photographs</li>
+                <li>Valid Identity Card</li>
+                <li>Electricity Bill</li>
+                <li>BVN</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Service 5 -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <i class="fas fa-piggy-bank"></i>
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">Government Tax Collection</h3>
+              <ul class="service-list">
+                <li>PAYE</li>
+                <li>Minimum tax</li>
+                <li>Direct Assessment</li>
+                <li>Road Taxes (Valid licence Renewal registration etc)</li>
+                <li>Withholding tax</li>
+                <li>Levies etc.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Service 6 -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">E-Transfer</h3>
+
+              <ul class="service-list">
+                <li>Fund transfer</li>
+                <li>Access to Bank's Application</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon-box">
+              <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">E-Transfer</h3>
+              <ul class="service-list">
+                <li>Agric loan scheme</li>
+                <li>L P O finance</li>
+                <li>Salary earner's loan</li>
+                <li>Asset acquisition</li>
+                <li>Micro credit</li>
+                <li>Ikenne classic loan</li>
+                <li>Tricycle loan</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer section -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <!-- COLUMN 1: Contact Details -->
+        <div class="footer-section">
+          <h3 class="footer-heading">Our Contact Details</h3>
+          <span class="brand-name">Ikenne Microfinance Bank</span>
+
+          <ul class="contact-list">
+            <!-- Address -->
+            <li class="contact-item">
+              <i class="fas fa-map-marker-alt contact-icon"></i>
+              <span>58, Tai Solarin way, Ikenne-Remo,<br />Ogun State</span>
+            </li>
+            <!-- Emails -->
+            <li class="contact-item">
+              <i class="fas fa-envelope contact-icon"></i>
+              <div>
+                <a href="mailto:kemiawolesi@ikennemfb.com" class="contact-link"
+                  >kemiawolesi@ikennemfb.com</a
+                ><br />
+                <a href="mailto:kingshak@ikennemfb.com" class="contact-link"
+                  >kingshak@ikennemfb.com</a
+                ><br />
+                <a href="mailto:admin@ikennemfb.com" class="contact-link"
+                  >admin@ikennemfb.com</a
+                >
+              </div>
+            </li>
+            <!-- Phones -->
+            <li class="contact-item">
+              <i class="fas fa-phone-alt contact-icon"></i>
+              <div>
+                <a href="tel:08033086092" class="contact-link">08033086092</a>,
+                <a href="tel:07050536077" class="contact-link">07050536077</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- COLUMN 2: Our Links -->
+        <div class="footer-section">
+          <h3 class="footer-heading">Our Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutpage.html">About</a></li>
+            <li><a href="servicepage.html">Services</a></li>
+            <li><a href="blogspage.html">Blog</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contactuspage.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- COLUMN 3: Need a Loan -->
+        <div class="footer-section">
+          <h3 class="footer-heading">Need a Loan?</h3>
+          <p class="footer-text">
+            You can talk to us directly about your financial needs.
+          </p>
+
+          <ul class="contact-list">
+            <li class="contact-item">
+              <i class="fas fa-phone-alt contact-icon"></i>
+              <a href="tel:07065201382" class="contact-link">07065201382</a>
+            </li>
+            <li class="contact-item">
+              <i class="fas fa-phone-alt contact-icon"></i>
+              <a href="tel:08166015581" class="contact-link">08166015581</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- COLUMN 4: Newsletter -->
+        <div class="footer-section">
+          <h3 class="footer-heading">Newsletter</h3>
+          <p class="footer-text">
+            Subscribe to our newsletter for notifications about new updates,
+            rates, and offers.
+          </p>
+
+          <form class="newsletter-form">
+            <input
+              type="email"
+              class="newsletter-input"
+              placeholder="Enter your Email"
+              required
+            />
+            <button type="submit" class="subscribe-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="footer-bottom">
+        &copy; 2024 Ikenne Microfinance Bank. All Rights Reserved.
+      </div>
+    </footer>
+    <script src="/index.js"></script>
+    <script src="/all.min.js"></script>
+  </body>
+</html>
